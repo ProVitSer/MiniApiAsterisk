@@ -1,0 +1,23 @@
+{
+    "name": "rusnarbank",
+    "version": "1.0.0",
+    "description": "API статистики/инициация из 3СХ",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "ProVitSer",
+    "license": "MIT",
+    "dependencies": {
+        "bluebird": "^3.7.2",
+        "express": "^4.17.1",
+        "http": "0.0.1-security",
+        "log4js": "^6.3.0",
+        "moment": "^2.29.1",
+        "nami": "^0.7.2",
+        "nodemon": "^2.0.7",
+        "pg": "^8.6.0",
+        "pg-promise": "^10.10.1",
+        "util": "^0.12.3"
+    }
+}
