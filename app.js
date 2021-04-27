@@ -21,6 +21,6 @@ app.use(function(req, res, next) {
     res.status(404).end();
 });
 
-app.listen(7788, () => {
+app.listen(7788, '0.0.0.0', () => {
     logger.info(`Сервер слушается на  http://localhost:7755`);
 });
