@@ -5,6 +5,7 @@ const namiLib = require('nami'),
     logger = require('../logger/logger'),
     config = require(`../config/config`);
 
+//Инициация вызова через AMI Asterisk. {внутренний номер, внешний номер, генерируемый id канала}
 async function sendAmiCall(res, extension, externalNumber, linkedid) {
     const action = new namiLib.Actions.Originate();
     action.channel = `local/${extension}:${externalNumber}@${config.context.crmBridgeLocal3CX}`;

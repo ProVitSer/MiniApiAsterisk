@@ -24,6 +24,7 @@ nami.on('namiConnected', function(event) {
     logger.info(`Подключение к AMI успешно установлено`);
 })
 
+//Event о завершение исходящего вызова по исходящему контексту. Сохраняется в лог для дублирования статистики на случай сбоев cdr
 nami.on('namiEventNewexten', (event) => {
     if (event.context == config.context.handlerOutgoingCall &&
         event.application == 'NoOp'

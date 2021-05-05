@@ -7,6 +7,7 @@ const express = require('express'),
     call = require('../src/call'),
     logger = require('../logger/logger');
 
+//Инициация ызова через AMI Asterisk. {внутренний номер, внешний номер, id канала по unixtime}
 router.put(`/api/originateCall`, async(req, res, next) => {
     try {
         const { extension, externalNumber } = req.body;
@@ -18,7 +19,7 @@ router.put(`/api/originateCall`, async(req, res, next) => {
     }
 });
 
-
+//Выгрузка всей статистике по внешнему номеру и диапазону времени
 router.put(`/api/statisticsAll`, async(req, res, next) => {
     try {
         const { externalNumber, startDate, endDate } = req.body;
@@ -31,6 +32,7 @@ router.put(`/api/statisticsAll`, async(req, res, next) => {
     }
 });
 
+//Выгрузка статистики по конкретному ID канала, который передается в случае оригинации через originateCall
 router.put(`/api/statisticsById`, async(req, res, next) => {
     try {
         const { id } = req.body;
