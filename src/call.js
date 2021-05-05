@@ -19,9 +19,9 @@ async function sendAmiCall(res, extension, externalNumber, linkedid) {
     logger.info(action);
     nami.send(action, (response) => {
         logger.info(` ---- Response: ${util.inspect(response)}`);
-        (response.response == 'Success') ? res.status(200).json({ status: response.response, id: linkedid }): res.status(503).json({ status: response.response, id: linkedid });
+        (response.response == 'Success') ? res.status(200).json({ id: linkedid }): res.status(503).json({ id: linkedid });
     });
     return '';
-};
+}
 
 module.exports = { sendAmiCall };
