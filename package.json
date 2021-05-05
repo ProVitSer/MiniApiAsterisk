@@ -1,6 +1,6 @@
 {
     "name": "rusnarbank",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "API статистики/инициация из 3СХ",
     "main": "server.js",
     "scripts": {
