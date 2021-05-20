@@ -22,7 +22,7 @@ exports.validationStatisticsAll = [
     .withMessage('Некорректный формат даты')
 ];
 
-exports.validationOriginateCall = [
+exports.validationStatisticsById = [
     check('id')
     .exists()
     .withMessage('Некорректный ключ')
@@ -30,7 +30,7 @@ exports.validationOriginateCall = [
     .withMessage('Должны быть только цифры')
 ];
 
-exports.validationStatisticsById = [
+exports.validationOriginateCall = [
     check('extension')
     .exists()
     .withMessage('Некорректный ключ')
