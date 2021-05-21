@@ -9,7 +9,7 @@ const express = require('express'),
     { validationStatisticsAll, validationOriginateCall, validationStatisticsById, checkRules } = require('../validators/api.validator');
 
 //Инициация ызова через AMI Asterisk. {внутренний номер, внешний номер, id канала по unixtime}
-router.put(`/api/originateCall`, validationOriginateCall, checkRules, async(req, res, next) => {
+router.post(`/api/originateCall`, validationOriginateCall, checkRules, async(req, res, next) => {
     try {
         const { extension, externalNumber } = req.body;
         const linkedid = moment().unix();
@@ -21,7 +21,7 @@ router.put(`/api/originateCall`, validationOriginateCall, checkRules, async(req,
 });
 
 //Выгрузка всей статистике по внешнему номеру и диапазону времени
-router.put(`/api/statisticsAll`, validationStatisticsAll, checkRules, async(req, res, next) => {
+router.post(`/api/statisticsAll`, validationStatisticsAll, checkRules, async(req, res, next) => {
     try {
         const { externalNumber, startDate, endDate } = req.body;
         const statisticsAll = await pg.searchAllInfoByDateNumber(externalNumber, startDate, endDate);
@@ -34,7 +34,7 @@ router.put(`/api/statisticsAll`, validationStatisticsAll, checkRules, async(req,
 });
 
 //Выгрузка статистики по конкретному ID канала, который передается в случае оригинации через originateCall
-router.put(`/api/statisticsById`, validationStatisticsById, checkRules, async(req, res, next) => {
+router.post(`/api/statisticsById`, validationStatisticsById, checkRules, async(req, res, next) => {
     try {
         const { id } = req.body;
         const statisticsById = await pg.searchAllInfoById(id);
